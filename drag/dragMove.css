@@ -1,0 +1,143 @@
+.table-move {
+    overflow-y: hidden;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 400px;
+    border: 1px solid rgba(221, 221, 221, 1);
+    margin-top: 100px;
+}
+
+.table-move .ul {
+    position: relative;
+    border: 1px solid rgba(221, 221, 221, 1);
+    padding: 0 15px 0 15px;
+}
+
+
+/* 行样式 */
+
+.table-move .rows {
+    display: inline-flex;
+    width: 100%
+}
+
+.table-move .rows .block {
+    width: 100%;
+    margin-right: 5px
+}
+
+
+/*遮罩层*/
+
+.table-move .cover {
+    height: 100%;
+    width: 100%;
+    z-index: 300;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(252, 252, 252, .5);
+    display: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.table-move.active .cover {
+    display: block;
+}
+
+
+/*鼠标移动块*/
+
+.table-move #moveDiv {
+    display: none;
+    width: 50%;
+    pointer-events: none;
+    position: absolute;
+    z-index: 300;
+    background-color: rgba(221, 221, 221, .6);
+}
+
+
+/*移动块样式*/
+
+.table-move .ul .block {
+    background: rgba(249, 249, 249, .5);
+    z-index: 200;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.table-move .ul .block,
+.table-move #moveDiv {
+    box-shadow: 1px 1px 1px rgba(221, 221, 221, .9);
+    border-radius: 2px;
+    border: 1px solid rgba(221, 221, 221, .4);
+}
+
+
+/* 行内隐藏块 */
+
+.table-move .ul .block.frame {
+    margin-right: 5px;
+    border: 1px dashed rgba(154, 111, 111, 0.4);
+    width: 100%;
+}
+
+
+/*移动块触发区域样式*/
+
+.table-move .ul .li {
+    line-height: 48px;
+    height: 48px;
+    cursor: move;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding-left: 15px;
+    padding-right: 15px;
+    display: inline-flex;
+    min-width: 100%;
+}
+
+
+/*隐藏点击的块*/
+
+.table-move .ul .rows.absolute,
+.table-move .ul .block.absolute {
+    display: none!important;
+}
+
+
+/*行间距基本样式*/
+
+.table-move .list-line {
+    cursor: auto;
+    z-index: 100;
+    height: 20px;
+    display: none;
+    pointer-events: none;
+}
+
+.table-move .list-line.point-events {
+    display: block;
+    pointer-events: none;
+}
+
+.table-move .list-line.point-events.higher {
+    height: 50px;
+    border: 1px dashed rgba(154, 111, 111, 0.4);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 5px;
+}
+
+.table-move.active .list-line.point-events,
+.table-move.active .rows .block {
+    pointer-events: auto;
+}
